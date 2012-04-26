@@ -1,14 +1,14 @@
-![status](https://secure.travis-ci.org/wearefractal/APPNAME.png?branch=master)
+![status](https://secure.travis-ci.org/wearefractal/benji.png?branch=master)
 
 ## Information
 
 <table>
 <tr> 
-<td>Package</td><td>APPNAME</td>
+<td>Package</td><td>benji</td>
 </tr>
 <tr>
 <td>Description</td>
-<td>NOTHING HERE YET</td>
+<td>Simple asynchronous benchmarks</td>
 </tr>
 <tr>
 <td>Node Version</td>
@@ -19,12 +19,18 @@
 ## Usage
 
 ```coffee-script
-NOTHING HERE YET
+benji = require 'benji'
+
+# Synchronous task
+ms = benji.sync 10, -> 2+2
+# ms is milliseconds averaged over 10 runs
+
+
+# Asynchronous task
+task = (cb) -> cb 2+2
+benji.async 10, task, (ms) ->
+  # ms is milliseconds averaged over 10 runs
 ```
-
-## Examples
-
-You can view more examples in the [example folder.](https://github.com/wearefractal/APPNAME/tree/master/examples)
 
 ## LICENSE
 
